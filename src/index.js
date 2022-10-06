@@ -1,23 +1,29 @@
 import ReactDOM from 'react-dom/client';
+import { Cv } from './cv/Cv';
 
 
-var today = new Date()
-var time = today.toLocaleDateString()
-var x = 'test'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+/* 
+Alt+shift+A : commentaires multiple
+Alt+shift+F : Formatage du code
+ctrl+espace : auto-complete
+*/
+
+const title = "Bonjour"
+
+const btn_primary = (text) => {
+  return <button style={{ background: 'blue', color: 'white' }}>{text}</button>
+}
 root.render(
+  <>
+    <h1>{title}</h1>
+    {btn_primary('Enregistrer')}
+    <Cv></Cv>
 
-  <div style={{color : 'red'}} className="title" htmlFor="test">
-    {time}
-  </div>
+
+  </>
 );
 
-const root2 = ReactDOM.createRoot(document.getElementById('epi'));
-root2.render(
- <>
- test from root 2
- </>
-);
 
 

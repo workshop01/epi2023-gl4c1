@@ -1,5 +1,6 @@
 import ReactDOM from 'react-dom/client';
 import { Cv } from './cv/Cv';
+import { Event } from './Event';
 
 
 
@@ -19,9 +20,8 @@ root.render(
   <>
     <h1>{title}</h1>
     {btn_primary('Enregistrer')}
-    <Cv></Cv>
-
-
+   {/*  <Cv></Cv> */}
+  <Event></Event>
   </>
 );
 

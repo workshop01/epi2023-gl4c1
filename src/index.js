@@ -1,6 +1,8 @@
 import ReactDOM from 'react-dom/client';
 import { Cv } from './cv/Cv';
 import { Event } from './Event';
+import { Signin } from './pages/Signin';
+import { Signup } from './pages/Signup';
 
 
 
@@ -18,10 +20,12 @@ const btn_primary = (text) => {
 }
 root.render(
   <>
-    <h1>{title}</h1>
-    {btn_primary('Enregistrer')}
-   {/*  <Cv></Cv> */}
-  <Event></Event>
+    {/*    <h1>{title}</h1>
+    {btn_primary('Enregistrer')} */}
+    {/*  <Cv></Cv> */}
+    {/*  <Event></Event> */}
+    {/* <Signin></Signin> */}
+    <Signup />
   </>
 );
 

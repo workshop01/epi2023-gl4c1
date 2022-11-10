@@ -10,6 +10,16 @@ export const Signup = () => {
         address : ''
 
     })
+    
+    const [focus  , setFocus] = useState({
+        firstname : false,
+        lastname : false,
+        email : false,
+        password : false,
+        confirmPassword : false,
+        address : false
+    })
+
     const handleSubmit = (e)=>{
         e.preventDefault()
         console.log(formValues)
@@ -28,13 +38,19 @@ export const Signup = () => {
                         <h2 style={{ textAlign: 'center' }}> Sign up</h2>
                         <div className='form-group'>
                             <label>First Name:</label>
-                            <input className='form-control' required  onChange={(e)=>handleValueChange(e,'firstname')}/>
+                            <input className='form-control' focused={focus.firstname.toString()} 
+                            onBlur={()=>setFocus({...focus , 'firstname' : true})}
+                            required  
+                            onChange={(e)=>handleValueChange(e,'firstname')}/>
                             <small>Firstname required</small>
                         </div>
 
                         <div className='form-group'>
                             <label>Last Name:</label>
-                            <input className='form-control'   onChange={(e)=>handleValueChange(e,'lastname')} />
+                            <input className='form-control' focused={focus.lastname.toString()} 
+                            onBlur={()=>setFocus({...focus , 'lastname' : true})}  pattern='^[A-Za-z]+'  
+                            onChange={(e)=>handleValueChange(e,'lastname')}  required/>
+                            <small>last name error</small>
                         </div>
                         <div className='form-group'>
                             <label>Email:</label>
@@ -48,11 +64,13 @@ export const Signup = () => {
 
                         <div className='form-group'>
                             <label>Confirm Password:</label>
-                            <input className='form-control' type="password" />
+                            <input className='form-control' type="password" pattern={formValues.password} />
+                            <small>Confirm password error</small>
                         </div>
                         <div className='form-group'>
                             <label>Address:</label>
-                            <input className='form-control' />
+                            <input className='form-control'  onChange={(e)=>handleValueChange(e,'address')} pattern='https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)' />
+                            <small>Address error</small>
                         </div>
                         <button className='btn btn-primary'>Submit</button>
                     </form>

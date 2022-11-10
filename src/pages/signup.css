@@ -2,6 +2,6 @@ small{
     color: red;
     display: none;
 }
-input:invalid ~ small{
+input:invalid[focused="true"] ~ small{
     display: block;
 }

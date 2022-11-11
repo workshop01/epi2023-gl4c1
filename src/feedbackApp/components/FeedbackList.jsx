@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const FeedbackList = ({ list }) => {
+export const FeedbackList = ({ list ,deleteFeedback , edit}) => {
     return (
         <div>
 
@@ -9,16 +9,16 @@ export const FeedbackList = ({ list }) => {
                     return (
                         <div className='card' key={index} >
 
-                            <button className='close'>
+                            <button className='close' onClick={()=>deleteFeedback(feedback.id)}>
                                 x
                             </button>
-                            <button className='edit'>
+                            <button className='edit'  onClick={()=>edit(feedback)}>
                                 E
                             </button>
                             <h3 className='num-display'>
                                 {feedback.rating}
                             </h3>
-                            <p> {feedback.text} </p>
+                            <p> {feedback.text} {feedback.id} </p>
                         </div>
                     )
                 })

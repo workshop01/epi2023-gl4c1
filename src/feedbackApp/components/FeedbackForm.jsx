@@ -1,16 +1,24 @@
 import React from 'react'
+import { useEffect } from 'react'
 import { useState } from 'react'
 
-export const FeedbackForm = ({send}) => {
+export const FeedbackForm = ({send , editedFeed}) => {
     /* définition d'une variable de type state 
     pour la récupération  du contenu du formulaire dans un seul objet*/
     const [newFeed, setNewFeed] = useState({
-        text: '', rating: 0
+        text: '', rating: 10
     })
     const handleValueClick = (name, value) => {
         setNewFeed({ ...newFeed, [name]: value })
     }
+    console.log(editedFeed)
     const values = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+    useEffect(()=>{
+        if(editedFeed.id){
+            setNewFeed(editedFeed)
+        }
+    },[editedFeed])
     return (
 
         <div className='card'>
@@ -23,6 +31,7 @@ export const FeedbackForm = ({send}) => {
                         return (
                             <li key={nb}>
                                 <input type="radio" name="rating" value={nb} id={nb}
+                                checked={newFeed.rating == nb}
                                     onClick={(e) => handleValueClick('rating', e.target.value)}
                                 />
                                 <label htmlFor={nb}>{nb}</label>
@@ -34,8 +43,11 @@ export const FeedbackForm = ({send}) => {
 
                 </ul>
                 <div className='input-group'>
-                    <input  onChange={(e) => handleValueClick('text', e.target.value)}></input>
-                    <button className="btn btn-secondary" onClick={(e)=>send(e , newFeed)}>send</button>
+                    <input  onChange={(e) => handleValueClick('text', e.target.value)}
+                    value={newFeed.text}
+                    ></input>
+                    <button className="btn btn-secondary"
+                     onClick={(e)=>{send(e , newFeed) ; setNewFeed({text : '' , rating:0}) }}>send</button>
                 </div>
             </form>
         </div>

@@ -6,7 +6,7 @@ export const FeedbackForm = ({send , editedFeed}) => {
     /* définition d'une variable de type state 
     pour la récupération  du contenu du formulaire dans un seul objet*/
     const [newFeed, setNewFeed] = useState({
-        text: '', rating: 10
+       id : undefined, text: '', rating: 10
     })
     const handleValueClick = (name, value) => {
         setNewFeed({ ...newFeed, [name]: value })
@@ -24,6 +24,7 @@ export const FeedbackForm = ({send , editedFeed}) => {
         <div className='card'>
             <h2>Leave your feedback</h2>
 
+            
             <form>
                 <ul className='rating'>
 

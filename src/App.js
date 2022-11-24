@@ -1,8 +1,10 @@
 import React from 'react'
 import { BrowserRouter as Router, Link, NavLink, Route, Routes, } from 'react-router-dom';
 import { Cv } from './cv/Cv';
+import { Details } from './Details';
 import { Event } from './Event';
 import { FeedbackApp } from './feedbackApp/FeedbackApp';
+import { Nav } from './Nav';
 import { Signin } from './pages/Signin';
 import { Signup } from './pages/Signup';
 
@@ -30,17 +32,12 @@ ctrl+espace : auto-complete
                 {/* <Signin></Signin> */}
                 {/* <Signup /> */}
                 
-               <div className='feedback-stats'>
-                <h4>
-                   <Link to="/feedback"> Feedback App </Link>
-                </h4>
-                <h4>
-                    <NavLink to="/login" activeClassName="active"> Signin </NavLink>
-                </h4>
-               </div>
+                <Nav> </Nav>
+               
                 <Routes>
                     <Route exact path='/feedback' element={<FeedbackApp/>}></Route>
                     <Route exact path='/login' element={<Signin/>}></Route>
+                    <Route exact path='/details/:id/:category' element={<Details/>}></Route>
                 </Routes>
             </Router>
         </div>

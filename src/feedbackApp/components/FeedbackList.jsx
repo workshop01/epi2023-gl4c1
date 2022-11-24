@@ -1,6 +1,9 @@
 import React from 'react'
+import { useContext } from 'react'
+import { FeedbackContext } from '../../contexts/FeedbackContext'
 
-export const FeedbackList = ({ list ,deleteFeedback , edit}) => {
+export const FeedbackList = () => {
+    const { list ,deleteFeedback , edit} = useContext(FeedbackContext)
     return (
         <div>
 

@@ -1,8 +1,11 @@
 import React from 'react'
+import { useContext } from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
+import { FeedbackContext } from '../../contexts/FeedbackContext'
 
-export const FeedbackForm = ({send , editedFeed}) => {
+export const FeedbackForm = () => {
+    const {send , editedFeed} = useContext(FeedbackContext)
     /* définition d'une variable de type state 
     pour la récupération  du contenu du formulaire dans un seul objet*/
     const [newFeed, setNewFeed] = useState({

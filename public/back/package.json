@@ -4,14 +4,15 @@
   "description": "first node server app",
   "main": "index.js",
   "scripts": {
-    "dev" :"nodemon index.js",
+    "dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "epi",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "mongoose": "^6.8.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.20"

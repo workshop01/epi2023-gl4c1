@@ -12,7 +12,7 @@ export const FeedbackList = () => {
                     return (
                         <div className='card' key={index} >
 
-                            <button className='close' onClick={()=>deleteFeedback(feedback.id)}>
+                            <button className='close' onClick={()=>deleteFeedback(feedback._id)}>
                                 x
                             </button>
                             <button className='edit'  onClick={()=>edit(feedback)}>
